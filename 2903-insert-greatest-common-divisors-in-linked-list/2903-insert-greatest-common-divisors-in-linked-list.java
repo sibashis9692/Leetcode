@@ -28,7 +28,6 @@ class Solution {
             else{
                 ptr = ptr.next;
             }
-            System.out.println("hello");
         }
         return head;
     }
