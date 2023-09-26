@@ -7,10 +7,6 @@ class Solution {
         String last = strs[strs.length - 1];
 
         int max_length = Math.min(first.length(), last.length());
-        System.out.println(max_length);
-        for(String he: strs){
-            System.out.print(he + " ");
-        }
         for(int i = 0; i <= max_length - 1; i++){
             if(first.charAt(i) == last.charAt(i)){
                 s += first.charAt(i);
