@@ -16,7 +16,6 @@ class Solution {
                     stack.remove(s.charAt(i));
                     i+=1;
                 }
-
             }
             max_length = max_length < stack.size() ? stack.size() : max_length;
 
