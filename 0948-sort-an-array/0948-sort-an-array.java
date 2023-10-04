@@ -8,45 +8,39 @@ class Solution {
 
     public static void Merge_sort(int nums[], int low, int high){
         if(low < high){
-            int mid = (high + low) / 2;
+            int mid = low + (high - low) / 2;
             Merge_sort(nums, low, mid);
             Merge_sort(nums, mid+1, high);
-            helper(nums, low, mid, high);
+            merge(nums, low, mid, high);
         }
     }
-    public static void helper(int nums[], int low , int mid, int high){
-        int l = low;
-        int m = mid + 1;
-        int k = low;
+    public static int[] merge(int nums[], int si, int mid, int ei) {
+        int i = si;
+        int j = mid+1;
+        int temp[] = new int[ei-si+1];
+        int k = 0;
 
-        int arr[] = new int[(int)(Math.pow(10, 4) * 5) + 1];
-
-        while(l <= mid && m <= high){
-            if(nums[l] < nums[m]){
-                arr[k] = nums[l];
-                l+=1;
-                k+=1;
-            }else{
-                arr[k] = nums[m];
-                m+=1;
-                k+=1;
+        while(i<=mid && j<=ei) {
+            if(nums[i]<nums[j]) {
+                temp[k++] = nums[i++];
+            }
+            else {
+                temp[k++] = nums[j++];
             }
         }
 
-        while(l <= mid){
-            arr[k] = nums[l];
-            l+=1;
-            k+=1;
+        while(i<=mid) {
+            temp[k++] = nums[i++];
         }
 
-        while(m <= high){
-            arr[k] = nums[m];
-            m+=1;
-            k+=1;
+        while(j<=ei) {
+            temp[k++] = nums[j++];
         }
 
-        for(int i = low; i <= high; i++){
-            nums[i] = arr[i];
+        for(int x=0, y=si; x<temp.length; x++,y++) {
+            nums[y] = temp[x];
         }
+        return nums;
     }
+
 }
