@@ -6,7 +6,6 @@ class Solution {
             i -= 1;
         }
 
-
         if(i <= 0){
             Arrays.sort(nums);
         }
@@ -14,7 +13,6 @@ class Solution {
         else{
             int small = nums[i];
             int index = i - 1;
-
 
             for(int j = i; j < nums.length; j++){
                 if(small >= nums[j] && nums[j] > nums[i - 1]){
@@ -27,7 +25,6 @@ class Solution {
             nums[i - 1] = nums[index];
             nums[index] = data;
 
-            System.out.println(i);
             Arrays.sort(nums, i, nums.length);
         }
     }
